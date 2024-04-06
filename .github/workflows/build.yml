@@ -1,0 +1,24 @@
+name: Test Build Publish Docker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+        - master
+
+jobs:
+
+  ci:
+    uses: ./.github/workflows/ci.yml
+        
+  docker_build:
+        needs: ci
+        name: Docker Build
+        uses: andrejvysny/workflows/.github/workflows/docker_build_push_ghcr.yaml@main
+        with:
+          context: .
+          tags: ghcr.io/andrejvysny/react-template
+          target: production
+          dockerfile: ./.docker/Dockerfile
+        secrets:
+          access_token: ${{ secrets.GITHUB_TOKEN }}

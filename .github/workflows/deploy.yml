@@ -1,0 +1,21 @@
+name: Test Build Deploy
+
+on:
+  workflow_dispatch:
+  push:
+
+
+
+jobs:
+
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: ci
+    uses: andrejvysny/workflows/.github/workflows/deploy_react.yaml@main
+    with:
+      server:  andrejvysny.sk
+      username: react-template.andrejvysny.sk
+    secrets:
+      password: ${{ secrets.FTP_PASS }}
