@@ -1,0 +1,27 @@
+#root {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.wrapper{
+  width: 100%;
+}
+
+.logo{
+  max-width: 100%;
+}
+
+.github-repo-link{
+  background-color: white;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  padding: 20px 30px;
+  border-radius: 15px;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  width: 50%;
+  min-width: 400px;
+}

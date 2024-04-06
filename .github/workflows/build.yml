@@ -1,4 +1,4 @@
-name: Test Build Publish
+name: Test Build Publish Docker
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
 
   ci:
     uses: ./.github/workflows/ci.yml
-        
+
   docker_build:
         needs: ci
         name: Docker Build
