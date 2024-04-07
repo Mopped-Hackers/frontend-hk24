@@ -29,7 +29,7 @@ function HomeView() {
             .then(response => {
                 if (response.data.status === "done") {
 
-                    navigate(`/done?file=${encodeURIComponent(response.data.file)}`);
+                    navigate(`/done?file=${encodeURIComponent(response.data.output)}`);
                     
                 } else {
                     setTimeout(() => pollStatus(url), 3000); // Poll again after 1 second
