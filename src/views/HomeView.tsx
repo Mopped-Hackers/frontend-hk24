@@ -60,16 +60,14 @@ function HomeView() {
             {loading ? <>
                 <img src={spinner} />
             </> : <> <Helmet>
-                <title>Github Legacy Refactorer</title>
+                <title>LegacyLifter</title>
             </Helmet>
 
                 <form className="wrapper" onSubmit={e => sendRequest(e)}>
                     <img src={logo} className="logo" alt="Vite logo" />
-                    <h1>Your Github Repository Link</h1>
+                    <h1>LegacyLifter</h1>
 
-                    <h2>Host: {getEnv('VITE_BACKEND_HOST')}</h2>
-
-                    <input className="github-repo-link" type="text" placeholder="Github repository link" />
+                    <input className="github-repo-link text-center" type="text" placeholder="Enter Github Repo Link" />
                 </form></>}
         </>
 

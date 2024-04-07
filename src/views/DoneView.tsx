@@ -26,10 +26,10 @@ function DoneView() {
   return (
     <>
       <Helmet>
-        <title>Github Legacy Refactorer</title>
+        <title>LegacyLifter</title>
       </Helmet>
-      <h1>Done</h1>
-      <h3>file: {file}</h3>
+      <h1>LegacyLifter</h1>
+      <h3>Generated: {file}</h3>
 
         { file ? <iframe src={file} width="100%" height={700} title="file"/> : null}
     
