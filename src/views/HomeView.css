@@ -42,3 +42,9 @@ h1{
   outline: none;
   cursor: pointer;
 }
+
+.counter {
+  font-size: 2rem;
+  margin-top: 2rem;
+  font-weight: bold;
+}

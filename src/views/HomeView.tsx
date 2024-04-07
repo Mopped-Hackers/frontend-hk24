@@ -14,13 +14,15 @@ function HomeView() {
 
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [time, setTime] = useState(0);
 
     useEffect(() => {
-        const input = document.querySelector(".github-repo-link");
-        input?.addEventListener("input", (e) => {
-            const value = (e.target as HTMLInputElement).value;
-            console.log(value);
-        });
+    
+        setTime(0)
+        const interval = setInterval(() => {
+            setTime(time => time + 1);
+        }, 1000);
+        return () => clearInterval(interval);
     }, []);
 
     const pollStatus = (url: string) => {
@@ -55,10 +57,20 @@ function HomeView() {
     };
 
 
+    const formatTime = (time: number) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    };
+
     return (
         <>
             {loading ? <>
+
+                <div className="counter">{formatTime(time)}</div>
+
                 <img src={spinner} />
+
             </> : <> <Helmet>
                 <title>LegacyLifter</title>
             </Helmet>
