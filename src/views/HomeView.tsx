@@ -34,7 +34,7 @@ function HomeView() {
                     navigate(`/done?file=${encodeURIComponent(response.data.output)}`);
                     
                 } else {
-                    setTimeout(() => pollStatus(url), 3000); // Poll again after 1 second
+                    setTimeout(() => pollStatus(url), 1000); // Poll again after 1 second
                 }
             })
             .catch(error => {
@@ -48,10 +48,14 @@ function HomeView() {
         const input = document.querySelector(".github-repo-link") as HTMLInputElement;
         const url = input.value;
         const processUrl = `${getEnv('VITE_BACKEND_HOST')}/process?url=${encodeURIComponent(url)}`;
-
-
+        
+        setTime(0)
         axios.post(processUrl).then(() => {
-            const statusUrl = `${getEnv('VITE_BACKEND_HOST')}/status/${encodeURIComponent(url)}`;
+            const statusUrl = `${getEnv('VITE_BACKEND_HOST')}/status?url=${encodeURIComponent(url)}`;
+            pollStatus(statusUrl);
+        }).catch(error => {
+            console.error(error);
+            const statusUrl = `${getEnv('VITE_BACKEND_HOST')}/status?url=${encodeURIComponent(url)}`;
             pollStatus(statusUrl);
         });
     };
