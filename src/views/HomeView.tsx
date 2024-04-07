@@ -28,7 +28,9 @@ function HomeView() {
         axios.get(url)
             .then(response => {
                 if (response.data.status === "done") {
-                    navigate("/done")
+
+                    navigate(`/done?file=${encodeURIComponent(response.data.file)}`);
+                    
                 } else {
                     setTimeout(() => pollStatus(url), 3000); // Poll again after 1 second
                 }
@@ -66,7 +68,7 @@ function HomeView() {
                     <h1>Your Github Repository Link</h1>
 
                     <h2>Host: {getEnv('VITE_BACKEND_HOST')}</h2>
-                    
+
                     <input className="github-repo-link" type="text" placeholder="Github repository link" />
                 </form></>}
         </>

@@ -5,15 +5,15 @@
   text-align: center;
 }
 
-.wrapper{
+.wrapper {
   width: 100%;
 }
 
-.logo{
+.logo {
   max-width: 100%;
 }
 
-.github-repo-link{
+.github-repo-link {
   background-color: white;
   font-size: 1.5rem;
   color: #1a1a1a;
@@ -24,4 +24,15 @@
   border: none;
   width: 50%;
   min-width: 400px;
+}
+
+.button-download {
+  border-radius: 15px;
+  background-color: #ff5e00 !important;
+  color: white;
+  padding: 10px 20px;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
